@@ -2,11 +2,110 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpaceXHistory.Views.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="HomePage!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:model="clr-namespace:SpaceXHistory.Models"
+             xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
+             x:DataType="viewmodel:HomePageViewModel"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+
+    <ScrollView Orientation="Vertical">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+              ColumnDefinitions="*"
+              RowSpacing="30">
+            
+            <Image Grid.Row="0" Grid.Column="0" Source="logo.png" WidthRequest="250" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center"/>
+            
+            
+            <!-- Next Launch -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
+                <Label HorizontalOptions="Center" Text="Next Launch" TextColor="#adb5bd" FontSize="20" FontFamily="Light" Margin="0, 25, 0, 20"/>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
+                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}" 
+                           HeightRequest="120" WidthRequest="120"/>
+                    <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding NextLaunch.Name}" FontSize="30" TextColor="White" FontFamily="Bold" Margin="10, 0, 0, 10"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding NextLaunch.Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Specified'}" 
+                               TextColor="White" FontSize="18" FontFamily="Medium" Margin="10, 0, 0, 5"/>
+                        <Label Grid.Row="2" Grid.Column="0" Text="{Binding NextLaunch.Status}" TextColor="{Binding NextLaunch.StatusColor}" 
+                               FontSize="18" FontFamily="Medium" Margin="10, 0, 0, 15"/>
+                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="Transparent" Padding="6, 10" Margin="10, 0, 0, 0">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="youtube" HeightRequest="14" WidthRequest="24"/>
+                                <Label Text="Watch the launch" TextColor="White" Margin="5, 0, 0, 0" FontSize="16" FontFamily="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NextLaunchWebcastTap" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+
+            
+            <!-- Latest Launch -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
+                <Label HorizontalOptions="Center" Text="Latest Launch" TextColor="#adb5bd" FontSize="20" FontFamily="Light" Margin="0, 25, 0, 20"/>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
+                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding LatestLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}" 
+                           HeightRequest="120" WidthRequest="120"/>
+                    <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding LatestLaunch.Name}" FontSize="30" TextColor="White" FontFamily="Bold" Margin="10, 0, 0, 10"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding LatestLaunch.Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Specified'}" 
+                               TextColor="White" FontSize="18" FontFamily="Medium" Margin="10, 0, 0, 5"/>
+                        <Label Grid.Row="2" Grid.Column="0" Text="{Binding LatestLaunch.Status}" TextColor="{Binding LatestLaunch.StatusColor}" 
+                               FontSize="18" FontFamily="Medium" Margin="10, 0, 0, 15"/>
+                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="Transparent" Padding="6, 10" Margin="10, 0, 0, 0">
+                            <HorizontalStackLayout>
+                                <Image Source="youtube" HeightRequest="14" WidthRequest="24"/>
+                                <Label Text="Watch the launch" TextColor="White" Margin="5, 0, 0, 0" FontSize="16" FontFamily="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+
+            
+            <!-- Roadster Status -->
+            <VerticalStackLayout Grid.Row="3" Grid.Column="0" HorizontalOptions="Center">
+                <Label HorizontalOptions="Center" Text="Tesla Roadster Status" TextColor="#adb5bd" FontSize="20" FontFamily="Light" Margin="0, 25, 0, 20"/>
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
+                    <Image Grid.Row="0" Grid.Column="0" Source="https://farm5.staticflickr.com/4615/40143096241_11128929df_b.jpg" 
+                           HeightRequest="120" WidthRequest="120"/>
+                    <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Earth distance (km)" FontSize="16" TextColor="White" FontFamily="Medium" Margin="10, 0, 0, 0"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding RoadsterInfo.Earth_distance_km, StringFormat='{0:0}'}" 
+                               TextColor="White" FontFamily="Medium" FontSize="16" Margin="10, 0, 0, 5"/>
+                        <Label Grid.Row="2" Grid.Column="0" Text="Mars distance (km)" FontSize="16" TextColor="White" FontFamily="Medium" Margin="10, 0, 0, 0"/>
+                        <Label Grid.Row="3" Grid.Column="0" Text="{Binding RoadsterInfo.Mars_distance_km, StringFormat='{0:0}'}" 
+                               TextColor="White" FontFamily="Medium" FontSize="16" Margin="10, 0, 0, 5"/>
+                        <Label Grid.Row="4" Grid.Column="0" Text="Speed (km/h)" FontSize="16" TextColor="White" FontFamily="Medium" Margin="10, 0, 0, 0"/>
+                        <Label Grid.Row="5" Grid.Column="0" Text="{Binding RoadsterInfo.Speed_kph, StringFormat='{0:0}'}" 
+                               TextColor="White" FontFamily="Medium" FontSize="16" Margin="10, 0, 0, 0"/>
+                        <Frame Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="Transparent" Padding="6, 10" Margin="10, 5, 0, 0">
+                            <HorizontalStackLayout>
+                                <Image Source="youtube" HeightRequest="14" WidthRequest="24"/>
+                                <Label Text="Watch the launch" TextColor="White" Margin="5, 0, 0, 0" FontSize="16" FontFamily="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RoadsterWebcastTap" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame Grid.Row="7" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="Transparent" Padding="6, 10" Margin="10, 5, 0, 0">
+                            <HorizontalStackLayout>
+                                <Image Source="wiki" HeightRequest="14" WidthRequest="24"/>
+                                <Label Text="Click to learn more" TextColor="White" Margin="5, 0, 0, 0" FontSize="16" FontFamily="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RoadsterWikiTap" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+    
 </ContentPage>
