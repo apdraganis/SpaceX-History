@@ -5,22 +5,21 @@
             x:Class="SpaceXHistory.Views.BottomTabPage"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackground="Black">
+            BarBackground="Black"
+            UnselectedTabColor="#adb5bd"
+            SelectedTabColor="#006BB5">
 
-    <NavigationPage Title="Home"
-                    IconImageSource="base">
+    <NavigationPage Title="Home" IconImageSource="base">
         <x:Arguments>
             <local:HomePage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Upcoming Launches"
-                    IconImageSource="ship">
+    <NavigationPage Title="Upcoming Launches" IconImageSource="ship">
         <x:Arguments>
             <local:UpcomingLaunchesPage/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Latest Launches"
-                    IconImageSource="cap">
+    <NavigationPage Title="Latest Launches" IconImageSource="cap">
         <x:Arguments>
             <local:LatestLaunchesPage/>
         </x:Arguments>

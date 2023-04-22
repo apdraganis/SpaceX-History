@@ -51,6 +51,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\base.svg" />
 	  <None Remove="Resources\Images\cap.svg" />
+	  <None Remove="resources\images\home.svg" />
 	  <None Remove="Resources\Images\ship.svg" />
 	  <None Remove="Resources\Images\wiki.svg" />
 	  <None Remove="Resources\Images\youtube.svg" />

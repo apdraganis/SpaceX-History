@@ -14,7 +14,7 @@
             <x:Double x:Key="launchNameFontSize">30</x:Double>
             <x:Double x:Key="launchContentFontSize">18</x:Double>
             <x:Double x:Key="frameTextFontSize">16</x:Double>
-            <Color x:Key="LaunchTitleTextColor">#adb5bd</Color>
+            <Color x:Key="launchTitleTextColor">#adb5bd</Color>
             <Color x:Key="launchContentTextColor">White</Color>
             <Color x:Key="frameBgColor">Transparent</Color>
         </ResourceDictionary>
@@ -130,7 +130,7 @@
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
                         <Frame Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10" Margin="10, 5, 0, 0">
                             <HorizontalStackLayout>
-                                <Image Style="{StaticResource frameIcon}"/>
+                                <Image Source="youtube" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
