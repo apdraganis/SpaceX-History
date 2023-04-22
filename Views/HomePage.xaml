@@ -43,8 +43,8 @@
         </Style>
 
         <Style x:Key="frameIcon" TargetType="Image">
-            <Setter Property="HeightRequest" Value="14" />
-            <Setter Property="WidthRequest" Value="24" />
+            <Setter Property="HeightRequest" Value="14"/>
+            <Setter Property="WidthRequest" Value="24"/>
         </Style>
 
         <Style x:Key="frameLabel" TargetType="Label">
@@ -55,17 +55,18 @@
     </ContentPage.Resources>
 
     <ScrollView Orientation="Vertical">
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
-              ColumnDefinitions="*"
-              RowSpacing="30">
+
+        <Grid VerticalOptions="Fill" RowDefinitions="Auto, *" ColumnDefinitions="*">
             
-            <Image Grid.Row="0" Grid.Column="0" Source="logo.png" WidthRequest="250" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center"/>
-            
+            <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="logo.png" WidthRequest="250" HeightRequest="100"/>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Spacing="50" Orientation="{OnIdiom Phone=Vertical, Desktop=Horizontal}" 
+                         Margin="{OnIdiom Desktop='0, -50, 0, 0'}">
             <!-- Next Launch -->
             <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Next Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
-                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}" 
+                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"
                            Style="{StaticResource patchStyle}"/>
                     <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding NextLaunch.Name}" Style="{StaticResource LaunchNameLabelStyle}" Margin="10, 0, 0, 10"/>
@@ -75,7 +76,7 @@
                                TextColor="{Binding NextLaunch.StatusColor}" Margin="10, 0, 0, 15"/>
                         <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10" Margin="10, 0, 0, 0">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="youtube" Style="{StaticResource frameIcon}"/>
+                                <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </StackLayout>
                             <Frame.GestureRecognizers>
@@ -86,7 +87,6 @@
                 </Grid>
             </VerticalStackLayout>
 
-            
             <!-- Latest Launch -->
             <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Latest Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
@@ -101,7 +101,7 @@
                                TextColor="{Binding LatestLaunch.StatusColor}" Margin="10, 0, 0, 15"/>
                         <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10" Margin="10, 0, 0, 0">
                             <HorizontalStackLayout>
-                                <Image Source="youtube" Style="{StaticResource frameIcon}"/>
+                                <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
@@ -112,12 +112,11 @@
                 </Grid>
             </VerticalStackLayout>
 
-            
             <!-- Roadster Status -->
             <VerticalStackLayout Grid.Row="3" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Tesla Roadster Status" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
-                    <Image Grid.Row="0" Grid.Column="0" Source="https://farm5.staticflickr.com/4615/40143096241_11128929df_b.jpg" Style="{StaticResource patchStyle}"/>
+                    <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" Source="https://farm5.staticflickr.com/4615/40143096241_11128929df_b.jpg" Style="{StaticResource patchStyle}"/>
                     <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="0" Text="Earth distance (km)" Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
                         <Label Grid.Row="1" Grid.Column="0" Text="{Binding RoadsterInfo.Earth_distance_km, StringFormat='{0:0}'}" Style="{StaticResource LaunchContentLabelStyle}"
@@ -130,7 +129,7 @@
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
                         <Frame Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10" Margin="10, 5, 0, 0">
                             <HorizontalStackLayout>
-                                <Image Source="youtube" Style="{StaticResource frameIcon}"/>
+                                <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
@@ -139,7 +138,7 @@
                         </Frame>
                         <Frame Grid.Row="7" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10" Margin="10, 5, 0, 0">
                             <HorizontalStackLayout>
-                                <Image Source="wiki" Style="{StaticResource frameIcon}"/>
+                                <Image Source="wiki.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Click to learn more" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                             <Frame.GestureRecognizers>
@@ -149,6 +148,7 @@
                     </Grid>
                 </Grid>
             </VerticalStackLayout>
+            </StackLayout>
         </Grid>
     </ScrollView>
     
