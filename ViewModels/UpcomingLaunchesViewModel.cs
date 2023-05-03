@@ -1,37 +1,31 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
 using SpaceXHistory.Helpers;
 using SpaceXHistory.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpaceXHistory.ViewModels
 {
     public class UpcomingLaunchesViewModel : BaseViewModel
     {
-        public ObservableCollection<Root> NextLaunch {  get; set; }
+        public ObservableCollection<Root> NextLaunches {  get; set; }
 
         private readonly HttpClient _httpClient;
 
         public UpcomingLaunchesViewModel()
         {
             _httpClient = new HttpClient();
-            NextLaunch = new ObservableCollection<Root>();
+            NextLaunches = new ObservableCollection<Root>();
         }
 
-        public void PopulateNextLaunch()
+        public void PopulateNextLaunches()
         {
-            foreach (Root launch in FetchAllNextLaunches())
+            foreach (Root launch in FetchNextLaunches())
             {
-                NextLaunch.Add(launch);
+                NextLaunches.Add(launch);
             }
         }
 
-        private ObservableCollection<Root> FetchAllNextLaunches()
+        private ObservableCollection<Root> FetchNextLaunches()
         {
             var nextLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/upcoming").Result;
             var nextLaunchDeserialized = JsonConvert.DeserializeObject<List<Root>>(nextLaunchSerialized);
