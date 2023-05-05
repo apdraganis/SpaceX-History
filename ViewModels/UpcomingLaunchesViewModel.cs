@@ -7,7 +7,7 @@ namespace SpaceXHistory.ViewModels
 {
     public class UpcomingLaunchesViewModel : BaseViewModel
     {
-        public ObservableCollection<Root> NextLaunches {  get; set; }
+        public ObservableCollection<Root> NextLaunches { get; set; }
 
         private readonly HttpClient _httpClient;
 
@@ -19,6 +19,8 @@ namespace SpaceXHistory.ViewModels
 
         public void PopulateNextLaunches()
         {
+            NextLaunches.Clear();
+
             foreach (Root launch in FetchNextLaunches())
             {
                 NextLaunches.Add(launch);

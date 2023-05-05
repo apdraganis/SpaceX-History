@@ -18,11 +18,14 @@
         </ListView.Header>
 
         <ListView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="model:Root">
                 <ViewCell>
                     <Grid RowDefinitions="auto" ColumnDefinitions="auto, auto" Margin="0, 20, 0, 0">
-                        <Image Grid.Row="0" Grid.Column="0" HeightRequest="120" WidthRequest="120" Source="{Binding }"/>
-                        <!--<Label Grid.Row="0" Grid.Column="0" FontSize="30" FontFamily="Bold" TextColor="White" Margin="0, 0, 0, 10" Text="{Binding }"/>-->
+                        <Image Grid.Row="0" Grid.Column="0" HeightRequest="120" WidthRequest="120" 
+                               Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" VerticalOptions="Center" Margin="20, 0, 0, 0">
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="30" FontFamily="Bold" TextColor="White" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
+                        </Grid>
                     </Grid>
                 </ViewCell>
             </DataTemplate>

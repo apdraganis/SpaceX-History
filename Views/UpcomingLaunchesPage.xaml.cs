@@ -9,9 +9,11 @@ public partial class UpcomingLaunchesPage : ContentPage
 
 	public UpcomingLaunchesPage()
 	{
+        
 		InitializeComponent();
 
 		_viewModel = new UpcomingLaunchesViewModel();
+
 		BindingContext = _viewModel;
 
 		_viewModel.PopulateNextLaunches();
