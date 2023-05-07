@@ -7,13 +7,60 @@
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
-    <ListView ItemsSource="{Binding NextLaunches}" ItemTapped="ListView_ItemTapped" BackgroundColor="Black" HasUnevenRows="True" Margin="20"
-              SeparatorVisibility="None">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="launchTitleFontSize">20</x:Double>
+            <x:Double x:Key="launchNameFontSize">30</x:Double>
+            <x:Double x:Key="launchContentFontSize">18</x:Double>
+            <x:Double x:Key="frameTextFontSize">16</x:Double>
+            <Color x:Key="launchTitleTextColor">#adb5bd</Color>
+            <Color x:Key="launchContentTextColor">White</Color>
+            <Color x:Key="frameBgColor">Transparent</Color>
+        </ResourceDictionary>
+
+        <Style x:Key="LaunchTitleLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Light" />
+            <Setter Property="FontSize" Value="{StaticResource launchTitleFontSize}"/>
+            <Setter Property="TextColor" Value="{StaticResource launchTitleTextColor}" />
+        </Style>
+
+        <Style x:Key="LaunchContentLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Medium"/>
+            <Setter Property="FontSize" Value="{StaticResource launchContentFontSize}"/>
+            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+        </Style>
+
+        <Style x:Key="LaunchNameLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Bold"/>
+            <Setter Property="FontSize" Value="{StaticResource launchNameFontSize}"/>
+            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+        </Style>
+
+        <Style x:Key="patchStyle" TargetType="Image">
+            <Setter Property="HeightRequest" Value="120" />
+            <Setter Property="WidthRequest" Value="120" />
+        </Style>
+
+        <Style x:Key="frameIcon" TargetType="Image">
+            <Setter Property="HeightRequest" Value="14"/>
+            <Setter Property="WidthRequest" Value="24"/>
+        </Style>
+
+        <Style x:Key="frameLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="Medium" />
+            <Setter Property="FontSize" Value="{StaticResource frameTextFontSize}" />
+            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <ListView ItemsSource="{Binding NextLaunches}" ItemTapped="ListView_ItemTapped" BackgroundColor="Black" HasUnevenRows="True" Margin="20" SeparatorVisibility="None">
         
         <ListView.Header>
             <Grid RowDefinitions="auto, auto" ColumnDefinitions="auto">
-                <Image Grid.Row="0" Grid.Column="0" Margin="0" WidthRequest="150" HeightRequest="40" HorizontalOptions="Start" Source="logo.png" />
-                <Label Grid.Row="1" Grid.Column="0" Margin="0, 20, 0, 0" Text="Next Launch" FontFamily="Light" TextColor="#adb5bd" />
+                <Image Grid.Row="0" Grid.Column="0" Margin="0" WidthRequest="150" HeightRequest="40" Source="logo.png" />
+                <Label Grid.Row="1" Grid.Column="0" Margin="0, 20, 0, 0" Text="Upcoming Launches" FontFamily="Light"
+                       FontSize ="{StaticResource launchTitleFontSize}" TextColor="{StaticResource launchTitleTextColor}" />
             </Grid>
         </ListView.Header>
 
@@ -25,16 +72,17 @@
                                Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" 
                               VerticalOptions="Center" Margin="20, 0, 0, 0">
-                            <Label Grid.Row="0" Grid.Column="0" FontSize="30" FontFamily="Bold" TextColor="White" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
-                            <Label Grid.Row="1" Grid.Column="0" 
+                            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource LaunchContentLabelStyle}"
                                    Text="{Binding Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Informed', FallbackValue='Not Informed'}"
                                    FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
-                            <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" TextColor="{Binding StatusColor}" />
-                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="Transparent" Padding="6, 10">
+                            <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
+                                   Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
+                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" BackgroundColor="{StaticResource frameBgColor}" Padding="6, 10">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="youtube" WidthRequest="20" HeightRequest="10" />
-                                    <Label Text="Watch the launch" Margin="6, 0, 0, 0" FontFamily="Light" FontSize="12" HorizontalOptions="Center" 
-                                           VerticalOptions="Center" TextColor="White" />
+                                    <Image Source="youtube" WidthRequest="20" HeightRequest="10" Style="{StaticResource frameIcon}"/>
+                                    <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
+                                           VerticalOptions="Center" Style="{StaticResource frameLabel}" />
                                 </StackLayout>
                             </Frame>
                         </Grid>
