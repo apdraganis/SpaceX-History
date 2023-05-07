@@ -22,7 +22,7 @@
             <DataTemplate x:DataType="model:Root">
                 <ViewCell>
                     <Grid RowDefinitions="auto" ColumnDefinitions="auto, auto" Margin="0, 20, 0, 0">
-                        <Image Grid.Row="0" Grid.Column="0" HeightRequest="120" WidthRequest="120" 
+                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}"
                                Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" 
                               VerticalOptions="Center" Margin="20, 0, 0, 0">
@@ -32,7 +32,7 @@
                                    FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
                             <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
                                    Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
-                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Style="{StaticResource frameStyle}" Padding="6, 10">
+                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="youtube" WidthRequest="20" HeightRequest="10" Style="{StaticResource frameIcon}"/>
                                     <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 

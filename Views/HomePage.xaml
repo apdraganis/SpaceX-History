@@ -28,7 +28,7 @@
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 5"/>
                         <Label Grid.Row="2" Grid.Column="0" Text="{Binding NextLaunch.Status}" Style="{StaticResource LaunchContentLabelStyle}" 
                                TextColor="{Binding NextLaunch.StatusColor}" Margin="10, 0, 0, 15"/>
-                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Style="{StaticResource frameStyle}" Padding="6, 10" Margin="10, 0, 0, 0">
+                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10" Margin="10, 0, 0, 0">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -53,7 +53,7 @@
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 5"/>
                         <Label Grid.Row="2" Grid.Column="0" Text="{Binding LatestLaunch.Status}"  Style="{StaticResource LaunchContentLabelStyle}" 
                                TextColor="{Binding LatestLaunch.StatusColor}" Margin="10, 0, 0, 15"/>
-                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Style="{StaticResource frameStyle}" Padding="6, 10" Margin="10, 0, 0, 0">
+                        <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10" Margin="10, 0, 0, 0">
                             <HorizontalStackLayout>
                                 <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -81,7 +81,7 @@
                         <Label Grid.Row="4" Grid.Column="0" Text="Speed (km/h)" Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
                         <Label Grid.Row="5" Grid.Column="0" Text="{Binding RoadsterInfo.Speed_kph, StringFormat='{0:0}'}" 
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
-                        <Frame Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" Style="{StaticResource frameStyle}" Padding="6, 10" Margin="10, 5, 0, 0">
+                        <Frame Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10" Margin="10, 5, 0, 0">
                         <HorizontalStackLayout>
                             <Image Source="youtube.png" Style="{StaticResource frameIcon}"/>
                             <Label Text="Watch the launch" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -90,7 +90,7 @@
                             <TapGestureRecognizer Tapped="RoadsterWebcastTap" />
                         </Frame.GestureRecognizers>
                         </Frame>
-                            <Frame Grid.Row="7" Grid.Column="0" HorizontalOptions="Start" Style="{StaticResource frameStyle}" Padding="6, 10" Margin="10, 5, 0, 0">
+                            <Frame Grid.Row="7" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10" Margin="10, 5, 0, 0">
                             <HorizontalStackLayout>
                                 <Image Source="wiki.png" Style="{StaticResource frameIcon}"/>
                                 <Label Text="Click to learn more" Style="{StaticResource frameLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
