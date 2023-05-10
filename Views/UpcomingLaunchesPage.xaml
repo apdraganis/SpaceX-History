@@ -8,14 +8,89 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
 
-    <ListView ItemsSource="{Binding NextLaunches}" ItemTapped="ListView_ItemTapped" BackgroundColor="Black" HasUnevenRows="True" Margin="20" SeparatorVisibility="None">
+    <StackLayout>
+        <VerticalStackLayout HorizontalOptions="End">
+            <Image VerticalOptions="End" HorizontalOptions="Start" Margin="0" WidthRequest="250" HeightRequest="100" Source="logo.png" />
+            <Label VerticalOptions="Start" HorizontalOptions="End" Margin="0, 20, 0, 0" Text="Upcoming Launches" Style="{StaticResource LaunchTitleLabelStyle}" />
+        </VerticalStackLayout>
+
+        <CarouselView ItemsSource="{Binding NextLaunches}"  IndicatorView="indicatorView">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="150" />
+            </CarouselView.ItemsLayout>
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="model:Root">
+                    <Grid RowDefinitions="auto" ColumnDefinitions="auto, auto" Margin="0, 20, 0, 0">
+                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}"
+                               Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" 
+                              VerticalOptions="Center" Margin="20, 0, 0, 0">
+                            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource LaunchContentLabelStyle}"
+                                   Text="{Binding Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Informed', FallbackValue='Not Informed'}"
+                                   FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
+                            <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
+                                   Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
+                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="youtube" WidthRequest="20" HeightRequest="10" Style="{StaticResource frameIcon}"/>
+                                    <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
+                                           VerticalOptions="Center" Style="{StaticResource frameLabel}" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        
+        <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="DarkGray" HorizontalOptions="Center"/>
+
+        <!--<CollectionView ItemsSource="{Binding NextLaunches}" ItemsLayout="{OnIdiom Phone=VerticalList, Desktop=HorizontalList}" 
+                    WidthRequest="600">
+            <CollectionView.Header>
+                <VerticalStackLayout HorizontalOptions="End">
+                    <Image VerticalOptions="End" HorizontalOptions="Start" Margin="0" WidthRequest="250" HeightRequest="100" Source="logo.png" />
+                    <Label VerticalOptions="Start" HorizontalOptions="End" Margin="0, 20, 0, 0" Text="Upcoming Launches" Style="{StaticResource LaunchTitleLabelStyle}" />
+                </VerticalStackLayout>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Root">
+                    <Grid RowDefinitions="auto" ColumnDefinitions="auto, auto" Margin="0, 20, 0, 0">
+                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}"
+                               Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" 
+                              VerticalOptions="Center" Margin="20, 0, 0, 0">
+                            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource LaunchContentLabelStyle}"
+                                   Text="{Binding Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Informed', FallbackValue='Not Informed'}"
+                                   FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
+                            <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
+                                   Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
+                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="youtube" WidthRequest="20" HeightRequest="10" Style="{StaticResource frameIcon}"/>
+                                    <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
+                                           VerticalOptions="Center" Style="{StaticResource frameLabel}" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+    </StackLayout>
+    
+    <!--<ListView ItemsSource="{Binding NextLaunches}" ItemTapped="ListView_ItemTapped" BackgroundColor="Black" HasUnevenRows="True" SeparatorVisibility="None">
         
         <ListView.Header>
-            <Grid RowDefinitions="auto, auto" ColumnDefinitions="auto">
-                <Image Grid.Row="0" Grid.Column="0" Margin="0" WidthRequest="150" HeightRequest="40" Source="logo.png" />
-                <Label Grid.Row="1" Grid.Column="0" Margin="0, 20, 0, 0" Text="Upcoming Launches" FontFamily="Light"
-                       FontSize ="{StaticResource launchTitleFontSize}" TextColor="{StaticResource launchTitleTextColor}" />
-            </Grid>
+            <VerticalStackLayout>
+                <Image VerticalOptions="Start" HorizontalOptions="Center" Margin="0" WidthRequest="250" HeightRequest="100" Source="logo.png" />
+                <Label VerticalOptions="Start" HorizontalOptions="Center" Margin="0, 20, 0, 0" Text="Upcoming Launches" Style="{StaticResource LaunchTitleLabelStyle}" />
+            </VerticalStackLayout>
         </ListView.Header>
 
         <ListView.ItemTemplate>
@@ -45,5 +120,5 @@
             </DataTemplate>
         </ListView.ItemTemplate>
             
-    </ListView>
+    </ListView>-->
 </ContentPage>
