@@ -5,33 +5,33 @@
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="True"
              BackgroundColor="Black">
-
+    
         <CollectionView ItemsSource="{Binding NextLaunches}" Margin="0, 100, 20, 0">
         <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Desktop=3}" VerticalItemSpacing="30"/>
+            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Desktop=2}" VerticalItemSpacing="30"/>
         </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Root">
-                    <Grid RowDefinitions="auto" ColumnDefinitions="*, *" Margin="0, 20, 0, 0">
-                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}"
-                               Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
-                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="auto" 
-                              HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 20">
-                            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
+                    <Grid RowDefinitions="200" ColumnDefinitions="*, *" Margin="0, 20, 0, 0">
+                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}" Margin="0, 0, 40, 0" HorizontalOptions="End"
+                               VerticalOptions="Center" Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="*" 
+                              HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0, 0, 0, 20">
+                            <Label Grid.Row="0" Grid.Column="0" WidthRequest="180" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
                             <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource LaunchContentLabelStyle}"
                                    Text="{Binding Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Informed', FallbackValue='Not Informed'}"
                                    FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
                             <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
                                    Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
-                            <Frame Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" Padding="6, 10">
+                            <Border Grid.Row="3" Grid.Column="0" HorizontalOptions="Start">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="youtube" WidthRequest="20" HeightRequest="10" Style="{StaticResource frameIcon}"/>
+                                    <Image Source="youtube.png" Style="{StaticResource borderIcon}"/>
                                     <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
-                                           VerticalOptions="Center" Style="{StaticResource frameLabel}" />
+                                           VerticalOptions="Center" Style="{StaticResource borderLabel}" />
                                 </StackLayout>
-                            </Frame>
+                            </Border>
                         </Grid>
                     </Grid>
                 </DataTemplate>

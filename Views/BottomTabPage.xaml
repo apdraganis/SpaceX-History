@@ -9,7 +9,7 @@
             UnselectedTabColor="#adb5bd"
             SelectedTabColor="#006BB5">
 
-    <NavigationPage Title="Home" IconImageSource="base">
+    <NavigationPage Title="Home" IconImageSource="base" >
         <x:Arguments>
             <local:HomePage/>
         </x:Arguments>

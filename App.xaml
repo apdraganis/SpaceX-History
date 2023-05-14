@@ -14,10 +14,10 @@
             <x:Double x:Key="launchTitleFontSize">20</x:Double>
             <x:Double x:Key="launchNameFontSize">30</x:Double>
             <x:Double x:Key="launchContentFontSize">18</x:Double>
-            <x:Double x:Key="frameTextFontSize">16</x:Double>
+            <x:Double x:Key="borderTextFontSize">16</x:Double>
             <Color x:Key="launchTitleTextColor">#adb5bd</Color>
             <Color x:Key="launchContentTextColor">White</Color>
-            <Color x:Key="frameBgColor">Transparent</Color>
+            <Color x:Key="borderBgColor">Transparent</Color>
         </ResourceDictionary>
 
         <Style x:Key="LaunchTitleLabelStyle" TargetType="Label">
@@ -43,20 +43,22 @@
             <Setter Property="WidthRequest" Value="120" />
         </Style>
 
-        <Style TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="{StaticResource frameBgColor}"/>
-            <Setter Property="BorderColor" Value="White"/>
-            <Setter Property="CornerRadius" Value="0"/>
+        <Style TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{StaticResource borderBgColor}"/>
+            <Setter Property="Stroke" Value="White"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="StrokeShape" Value="RoundRectangle 8,8,8,8"/>
+            <Setter Property="Padding" Value="10, 12"/>
         </Style>
 
-        <Style x:Key="frameIcon" TargetType="Image">
+        <Style x:Key="borderIcon" TargetType="Image">
             <Setter Property="HeightRequest" Value="14"/>
             <Setter Property="WidthRequest" Value="24"/>
         </Style>
 
-        <Style x:Key="frameLabel" TargetType="Label">
+        <Style x:Key="borderLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="Medium" />
-            <Setter Property="FontSize" Value="{StaticResource frameTextFontSize}" />
+            <Setter Property="FontSize" Value="{StaticResource borderTextFontSize}" />
             <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
         </Style>
     </Application.Resources>
