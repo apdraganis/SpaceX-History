@@ -5,18 +5,18 @@ namespace SpaceXHistory.Views;
 
 public partial class UpcomingLaunchesPage : ContentPage
 {
-	private readonly UpcomingLaunchesViewModel _viewModel;
+	private readonly UpcomingLaunchesViewModel _vm;
 
 	public UpcomingLaunchesPage()
 	{
         
 		InitializeComponent();
 
-		_viewModel = new UpcomingLaunchesViewModel();
+        _vm = new UpcomingLaunchesViewModel();
 
-		BindingContext = _viewModel;
+		BindingContext = _vm;
 
-		_viewModel.PopulateNextLaunches();
+		_vm.PopulateNextLaunches();
 	}
 
     private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

@@ -21,7 +21,7 @@
     </NavigationPage>
     <NavigationPage Title="Latest Launches" IconImageSource="cap">
         <x:Arguments>
-            <local:LatestLaunchesPage/>
+            <local:CompletedLaunchesPage/>
         </x:Arguments>
     </NavigationPage>
 </TabbedPage>

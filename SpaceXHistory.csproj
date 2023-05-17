@@ -62,13 +62,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\CompletedLaunchesPage.xaml.cs">
+	    <DependentUpon>CompletedLaunchesPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\BottomTabPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\LatestLaunchesPage.xaml">
+	  <MauiXaml Update="Views\CompletedLaunchesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UpcomingLaunchesPage.xaml">
