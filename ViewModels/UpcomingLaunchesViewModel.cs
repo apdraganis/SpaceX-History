@@ -22,9 +22,7 @@ namespace SpaceXHistory.ViewModels
             NextLaunches.Clear();
 
             foreach (Root launch in FetchNextLaunches())
-            {
                 NextLaunches.Add(launch);
-            }
         }
 
         private ObservableCollection<Root> FetchNextLaunches()
