@@ -19,26 +19,32 @@ public partial class UpcomingLaunchesPage : ContentPage
 		_vm.PopulateNextLaunches();
 	}
 
-    private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+    private async void WatchTheLaunch_Tapped(object sender, EventArgs e)
     {
-        if (e.Item is not Root launch || string.IsNullOrEmpty(launch.Links.Webcast))
+        Root bc = ((VisualElement)sender).BindingContext as Root;
+
+        if (bc != null)
+            OpenUrl(bc.Links.Webcast);
+    }
+
+    private async void OpenUrl(string url)
+    {
+        if (string.IsNullOrEmpty(url))
         {
-            await DisplayAlert(string.Empty, "This release does not yet have a video.", "Ok");
+            await DisplayAlert(string.Empty, "No video provided for this launch.", "OK");
             return;
         }
 
         try
         {
-            Uri uri = new(launch.Links.Webcast);
+            Uri uri = new(url);
             await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
         catch (Exception ex)
         {
             Console.Write(ex.Data);
 
-            await DisplayAlert("An unexpected error occured",
-                "No browser may be installed on the device",
-                "Ok");
+            await DisplayAlert("Error", "Please make sure that there is a browser installed in your device.", "OK");
         }
     }
 }

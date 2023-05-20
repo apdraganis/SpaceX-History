@@ -31,7 +31,10 @@
                                     <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
                                            VerticalOptions="Center" Style="{StaticResource borderLabel}" />
                                 </StackLayout>
-                            </Border>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="WatchTheLaunch_Tapped" />
+                                </Border.GestureRecognizers>
+                        </Border>
                         </Grid>
                     </Grid>
                 </DataTemplate>

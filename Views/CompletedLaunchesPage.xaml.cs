@@ -1,3 +1,4 @@
+using SpaceXHistory.Models;
 using SpaceXHistory.ViewModels;
 
 namespace SpaceXHistory.Views;
@@ -9,7 +10,7 @@ public partial class CompletedLaunchesPage : ContentPage
     public CompletedLaunchesPage()
     {
         InitializeComponent();
-
+        
         _vm = new CompletedLaunchesViewModel();
         BindingContext = _vm;
 
@@ -18,8 +19,12 @@ public partial class CompletedLaunchesPage : ContentPage
 
     private async void WatchTheLaunch_Tapped(object sender, EventArgs e)
     {
-        var obj = e.ToString();
-        //OpenUrl(_vm.CompletedLaunches.Links.Webcast);
+
+
+        Root bc = ((VisualElement)sender).BindingContext as Root;
+
+        if (bc != null)
+            OpenUrl(bc.Links.Webcast);
     }
 
     private async void OpenUrl(string url)
