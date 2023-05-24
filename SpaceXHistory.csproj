@@ -28,6 +28,16 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<AppInstallerUri>C:\Users\draga\Desktop\Code</AppInstallerUri>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-android|AnyCPU'">
+	  <DebugSymbols>False</DebugSymbols>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -58,17 +68,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\BaseTabbedPage.xaml.cs">
+	    <DependentUpon>BaseTabbedPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\CompletedLaunchesPage.xaml.cs">
 	    <DependentUpon>CompletedLaunchesPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\BottomTabPage.xaml">
+	  <MauiXaml Update="Views\BaseTabbedPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">

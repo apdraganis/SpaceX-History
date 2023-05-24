@@ -13,6 +13,7 @@ namespace SpaceXHistory.ViewModels
     public class CompletedLaunchesViewModel : BaseViewModel
     {
         public ObservableCollection<Root> CompletedLaunches { get; set; }
+
         private readonly HttpClient _httpClient;
 
         public CompletedLaunchesViewModel()

@@ -1,32 +1,21 @@
 ﻿using SpaceXHistory.Models;
 using SpaceXHistory.Helpers;
 using Newtonsoft.Json;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace SpaceXHistory.ViewModels
 {
-    public class HomePageViewModel : BaseViewModel
+    public partial class HomePageViewModel : ObservableObject
     {
-        public Root NextLaunch
-        {
-            get => _nextLaunch;
-            set => SetProperty(ref _nextLaunch, value);
-        }
-
-        public Root LatestLaunch
-        {
-            get => _latestLaunch;
-            set => SetProperty(ref _latestLaunch, value);
-        }
-
-        public Roadster RoadsterInfo
-        {
-            get => _roadsterInfo;
-            set => SetProperty(ref _roadsterInfo, value);
-        }
-
         private readonly HttpClient _httpClient;
+
+        [ObservableProperty]
         private Root _nextLaunch;
+
+        [ObservableProperty]
         private Root _latestLaunch;
+
+        [ObservableProperty]
         private Roadster _roadsterInfo;
 
         public HomePageViewModel()

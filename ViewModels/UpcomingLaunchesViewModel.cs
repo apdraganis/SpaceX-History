@@ -7,30 +7,30 @@ namespace SpaceXHistory.ViewModels
 {
     public class UpcomingLaunchesViewModel : BaseViewModel
     {
-        public ObservableCollection<Root> NextLaunches { get; set; }
+        public ObservableCollection<Root> UpcomingLaunches { get; set; }
 
         private readonly HttpClient _httpClient;
 
         public UpcomingLaunchesViewModel()
         {
             _httpClient = new HttpClient();
-            NextLaunches = new ObservableCollection<Root>();
+            UpcomingLaunches = new ObservableCollection<Root>();
         }
 
-        public void PopulateNextLaunches()
+        public void PopulateUpcomingLaunches()
         {
-            NextLaunches.Clear();
+            UpcomingLaunches.Clear();
 
-            foreach (Root launch in FetchNextLaunches())
-                NextLaunches.Add(launch);
+            foreach (Root launch in FetchUpcomingLaunches())
+                UpcomingLaunches.Add(launch);
         }
 
-        private ObservableCollection<Root> FetchNextLaunches()
+        private ObservableCollection<Root> FetchUpcomingLaunches()
         {
-            var nextLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/upcoming").Result;
-            var nextLaunchDeserialized = JsonConvert.DeserializeObject<List<Root>>(nextLaunchSerialized);
+            var upcomingLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/upcoming").Result;
+            var upcomingLaunchDeserialized = JsonConvert.DeserializeObject<List<Root>>(upcomingLaunchSerialized);
 
-            ObservableCollection<Root> allLaunches = new(nextLaunchDeserialized);
+            ObservableCollection<Root> allLaunches = new(upcomingLaunchDeserialized);
 
             return allLaunches;
         }
