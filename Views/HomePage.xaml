@@ -35,7 +35,7 @@
                                 <Label Text="Watch the launch" Style="{StaticResource borderLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </StackLayout>
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
+                                <TapGestureRecognizer Tapped="NextLaunchWebcastTap" />
                             </Border.GestureRecognizers>
                                 <!--<Frame.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="NextLaunchWebcastTap" />
@@ -89,16 +89,13 @@
                         <Label Grid.Row="5" Grid.Column="0" Text="{Binding RoadsterInfo.Speed_kph, StringFormat='{0:0}'}" 
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 0"/>
                         <Border Grid.Row="6" Grid.Column="0" HorizontalOptions="Start" Margin="10, 5, 0, 0">
-                        <HorizontalStackLayout>
-                            <Image Source="youtube.png" Style="{StaticResource borderIcon}"/>
-                            <Label Text="Watch the launch" Style="{StaticResource borderLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        </HorizontalStackLayout>
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
-                        </Border.GestureRecognizers>
-                                <!--<Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="RoadsterWebcastTap" />
-                        </Frame.GestureRecognizers>-->
+                            <HorizontalStackLayout>
+                                <Image Source="youtube.png" Style="{StaticResource borderIcon}"/>
+                                <Label Text="Watch the launch" Style="{StaticResource borderLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RoadsterWebcastTap" />
+                            </Border.GestureRecognizers>
                         </Border>
                             <Border Grid.Row="7" Grid.Column="0" HorizontalOptions="Start" Margin="10, 5, 0, 0">
                             <HorizontalStackLayout>
@@ -106,11 +103,8 @@
                                 <Label Text="Click to learn more" Style="{StaticResource borderLabel}" Margin="5, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
+                                    <TapGestureRecognizer Tapped="RoadsterWikiTap" />
                             </Border.GestureRecognizers>
-                                <!--<Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="RoadsterWikiTap" />
-                            </Frame.GestureRecognizers>-->
                         </Border>
                     </Grid>
                 </Grid>

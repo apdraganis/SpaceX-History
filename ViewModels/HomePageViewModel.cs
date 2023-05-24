@@ -2,12 +2,13 @@
 using SpaceXHistory.Helpers;
 using Newtonsoft.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
+using SpaceXHistory.Services;
 
 namespace SpaceXHistory.ViewModels
 {
     public partial class HomePageViewModel : ObservableObject
     {
-        private readonly HttpClient _httpClient;
+        LaunchService _launchService;
 
         [ObservableProperty]
         private Root _nextLaunch;
@@ -20,25 +21,22 @@ namespace SpaceXHistory.ViewModels
 
         public HomePageViewModel()
         {
-            _httpClient = new HttpClient();
+            this._launchService = new LaunchService();
         }
 
-        public void GetNextLaunch()
+        public async Task GetNextLaunch()
         {
-            var nextLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/next").Result;
-            NextLaunch = JsonConvert.DeserializeObject<Root>(nextLaunchSerialized);
+            NextLaunch = await _launchService.GetNextLaunch();
         }
 
-        public void GetLatestLaunch()
+        public async Task GetLatestLaunch()
         {
-            var latestLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/latest").Result;
-            LatestLaunch = JsonConvert.DeserializeObject<Root>(latestLaunchSerialized);
+            LatestLaunch = await _launchService.GetLatestLaunch();
         }
 
-        public void GetRoadsterInfo()
+        public async Task GetRoadsterInfo()
         {
-            var roadsterInfoSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "roadster").Result;
-            RoadsterInfo = JsonConvert.DeserializeObject<Roadster>(roadsterInfoSerialized);
+            RoadsterInfo = await _launchService.GetRoadster();
         }
     }
 }

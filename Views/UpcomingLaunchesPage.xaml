@@ -7,8 +7,8 @@
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
              NavigationPage.HasNavigationBar="True"
              BackgroundColor="Black">
-    
-        <CollectionView ItemsSource="{Binding NextLaunches}" Margin="0, 100, 20, 0">
+
+    <CollectionView ItemsSource="{Binding UpcomingLaunches}" Margin="0, 100, 20, 0">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Desktop=2}" VerticalItemSpacing="30"/>
         </CollectionView.ItemsLayout>

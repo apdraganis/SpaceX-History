@@ -16,7 +16,7 @@ public partial class UpcomingLaunchesPage : ContentPage
 
 		BindingContext = _vm;
 
-		_vm.PopulateNextLaunches();
+		_vm.PopulateUpcomingLaunches();
 	}
 
     private async void WatchTheLaunch_Tapped(object sender, EventArgs e)
