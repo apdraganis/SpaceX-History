@@ -1,4 +1,8 @@
-﻿namespace SpaceXHistory;
+﻿using SpaceXHistory.Services;
+using SpaceXHistory.ViewModels;
+using SpaceXHistory.Views;
+
+namespace SpaceXHistory;
 
 public static class MauiProgram
 {
@@ -18,6 +22,6 @@ public static class MauiProgram
                 fonts.AddFont("GemunuLibre-SemiBold.ttf", "SemiBold");
             });
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

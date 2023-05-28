@@ -37,9 +37,6 @@
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="NextLaunchWebcastTap" />
                             </Border.GestureRecognizers>
-                                <!--<Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="NextLaunchWebcastTap" />
-                            </Frame.GestureRecognizers>-->
                         </Border>
                     </Grid>
                 </Grid>
@@ -49,9 +46,9 @@
             <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Latest Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
-                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding LatestLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"
+                        <Image Grid.Row="0" Grid.Column="0" Source="{Binding LatestLaunch.Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"
                            Style="{StaticResource patchStyle}"/>
-                    <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding LatestLaunch.Name}" Style="{StaticResource LaunchNameLabelStyle}" Margin="10, 0, 0, 10"/>
                         <Label Grid.Row="1" Grid.Column="0" Text="{Binding LatestLaunch.Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Specified'}" 
                                Style="{StaticResource LaunchContentLabelStyle}" Margin="10, 0, 0, 5"/>
@@ -65,9 +62,6 @@
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
                             </Border.GestureRecognizers>
-                            <!--<Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="LatestLaunchWebcastTap" />
-                            </Frame.GestureRecognizers>-->
                         </Border>
                     </Grid>
                 </Grid>

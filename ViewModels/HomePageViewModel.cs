@@ -1,14 +1,13 @@
 ﻿using SpaceXHistory.Models;
-using SpaceXHistory.Helpers;
-using Newtonsoft.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceXHistory.Services;
+using CommunityToolkit.Mvvm.Input;
 
 namespace SpaceXHistory.ViewModels
 {
-    public partial class HomePageViewModel : ObservableObject
+    public partial class HomePageViewModel : BaseViewModel
     {
-        LaunchService _launchService;
+        readonly LaunchService launchService;
 
         [ObservableProperty]
         private Root _nextLaunch;
@@ -21,22 +20,25 @@ namespace SpaceXHistory.ViewModels
 
         public HomePageViewModel()
         {
-            this._launchService = new LaunchService();
+            this.launchService = new ();
         }
 
-        public async Task GetNextLaunch()
+        [RelayCommand]
+        public void GetNextLaunch()
         {
-            NextLaunch = await _launchService.GetNextLaunch();
+            NextLaunch = launchService.GetNextLaunch();
         }
 
-        public async Task GetLatestLaunch()
+        [RelayCommand]
+        public void GetLatestLaunch()
         {
-            LatestLaunch = await _launchService.GetLatestLaunch();
+            LatestLaunch = launchService.GetLatestLaunch();
         }
 
-        public async Task GetRoadsterInfo()
+        [RelayCommand]
+        public void GetRoadsterInfo()
         {
-            RoadsterInfo = await _launchService.GetRoadster();
+            RoadsterInfo = launchService.GetRoadster();
         }
     }
 }

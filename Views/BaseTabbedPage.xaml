@@ -6,8 +6,9 @@
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
             BarBackground="Black"
-            UnselectedTabColor="#adb5bd"
-            SelectedTabColor="#006BB5">
+            UnselectedTabColor="{OnIdiom Phone='#adb5bd'}"
+            SelectedTabColor="{OnIdiom Phone='#006BB5'}">
+
 
     <NavigationPage Title="Home" IconImageSource="base" >
         <x:Arguments>

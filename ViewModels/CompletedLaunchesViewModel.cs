@@ -1,41 +1,33 @@
 ﻿using Newtonsoft.Json;
 using SpaceXHistory.Helpers;
 using SpaceXHistory.Models;
-using System;
-using System.Collections.Generic;
+using SpaceXHistory.Services;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SpaceXHistory.ViewModels
 {
     public class CompletedLaunchesViewModel : BaseViewModel
     {
+        readonly LaunchService _launchService;
         public ObservableCollection<Root> CompletedLaunches { get; set; }
-
-        private readonly HttpClient _httpClient;
 
         public CompletedLaunchesViewModel()
         {
-            _httpClient = new HttpClient();
-            CompletedLaunches = new ObservableCollection<Root>();
+            CompletedLaunches = new ();
+            _launchService = new ();
         }
 
         public void PopulateCompletedLaunches()
         {
-            foreach (Root launch in FetchCompletedLaunches())
+            CompletedLaunches.Clear();
+
+            ObservableCollection<Root> completedLaunches = _launchService.FetchCompletedLaunches();
+
+            if (completedLaunches == null || completedLaunches.Count == 0) return;
+
+            foreach (Root launch in completedLaunches)
                 CompletedLaunches.Add(launch);
-        }
-
-        private ObservableCollection<Root> FetchCompletedLaunches()
-        {
-            var completedLaunchesSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/past").Result;
-            var completedLaunchesDeserialized = JsonConvert.DeserializeObject<List<Root>>(completedLaunchesSerialized);
-
-            ObservableCollection<Root> allLaunches = new(completedLaunchesDeserialized);
-
-            return allLaunches;
         }
     }
 }

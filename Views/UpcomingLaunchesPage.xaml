@@ -5,7 +5,7 @@
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
-             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
 
     <CollectionView ItemsSource="{Binding UpcomingLaunches}" Margin="0, 100, 20, 0">

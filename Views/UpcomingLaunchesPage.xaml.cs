@@ -12,14 +12,13 @@ public partial class UpcomingLaunchesPage : ContentPage
         
 		InitializeComponent();
 
-        _vm = new UpcomingLaunchesViewModel();
-
+        _vm = new();
 		BindingContext = _vm;
 
 		_vm.PopulateUpcomingLaunches();
 	}
-
-    private async void WatchTheLaunch_Tapped(object sender, EventArgs e)
+    
+    private void WatchTheLaunch_Tapped(object sender, EventArgs e)
     {
         Root bc = ((VisualElement)sender).BindingContext as Root;
 

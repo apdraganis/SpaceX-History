@@ -5,14 +5,14 @@ namespace SpaceXHistory.Views;
 
 public partial class HomePage : ContentPage
 {
-	private readonly HomePageViewModel _viewModel;
+	HomePageViewModel _viewModel;
 
 	public HomePage()
 	{
 		InitializeComponent();
 
-		_viewModel = new HomePageViewModel();
-		BindingContext = _viewModel;
+		_viewModel = new ();
+        BindingContext = _viewModel;
 
 		_viewModel.GetNextLaunch();
 		_viewModel.GetLatestLaunch();

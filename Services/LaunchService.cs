@@ -3,6 +3,7 @@ using SpaceXHistory.Helpers;
 using SpaceXHistory.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
@@ -13,49 +14,64 @@ namespace SpaceXHistory.Services
     public class LaunchService
     {
         HttpClient _httpClient;
+
         public LaunchService()
         {
-            _httpClient = new HttpClient();
+            this._httpClient = new HttpClient();
         }
 
-        Root _nextLaunch = new ();
-        Root _latestLaunch = new ();
-        Roadster _roadster = new ();
 
-        public async Task<Root> GetNextLaunch()
+        // HomePage
+        public Root GetNextLaunch()
         {
-            var res = await _httpClient.GetAsync(Constants.BaseUrl + "launches/next");
+            var nextLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/next").Result;
+            var nextLaunchDeserialized = JsonConvert.DeserializeObject<Root>(nextLaunchSerialized);
 
-            if (res.IsSuccessStatusCode)
-            {
-                _nextLaunch = await res.Content.ReadFromJsonAsync<Root>();
-            }
+            Root nextLaunch = nextLaunchDeserialized;
 
-            return _nextLaunch;
+            return nextLaunch;
+        }
+        public Root GetLatestLaunch()
+        {
+            var latestLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/latest").Result;
+            var latestLaunchDeserialized = JsonConvert.DeserializeObject<Root>(latestLaunchSerialized);
+
+            Root latestLaunch = latestLaunchDeserialized;
+
+            return latestLaunch;
+        }
+        public Roadster GetRoadster()
+        {
+            var roadsterSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "roadster").Result;
+            var roadsterDeserialized = JsonConvert.DeserializeObject<Roadster>(roadsterSerialized);
+
+            Roadster roadster = roadsterDeserialized;
+
+            return roadster;
         }
 
-        public async Task<Root> GetLatestLaunch()
+
+        // UpcomingLaunchesPage
+        public ObservableCollection<Root> FetchUpcomingLaunches()
         {
-            var res = await _httpClient.GetAsync(Constants.BaseUrl + "launches/latest");
+            var upcomingLaunchesSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/upcoming").Result;
+            var upcomingLaunchesDeserialized = JsonConvert.DeserializeObject<List<Root>>(upcomingLaunchesSerialized);
 
-            if (res.IsSuccessStatusCode)
-            {
-                _latestLaunch = await res.Content.ReadFromJsonAsync<Root>();
-            }
+            ObservableCollection<Root> upcomingLaunches = new(upcomingLaunchesDeserialized);
 
-            return _latestLaunch;
+            return upcomingLaunches;
         }
 
-        public async Task<Roadster> GetRoadster()
+
+        // CompletedLaunchesPage
+        public ObservableCollection<Root> FetchCompletedLaunches()
         {
-            var res = await _httpClient.GetAsync(Constants.BaseUrl + "launches/roadster");
+            var completedLaunchesSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/past").Result;
+            var completedLaunchesDeserialized = JsonConvert.DeserializeObject<List<Root>>(completedLaunchesSerialized);
 
-            if (res.IsSuccessStatusCode)
-            {
-                _latestLaunch = await res.Content.ReadFromJsonAsync<Root>();
-            }
+            ObservableCollection<Root> completedLaunches = new(completedLaunchesDeserialized);
 
-            return _roadster;
+            return completedLaunches;
         }
     }
 }

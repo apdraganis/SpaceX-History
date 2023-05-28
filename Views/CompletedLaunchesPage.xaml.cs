@@ -5,22 +5,20 @@ namespace SpaceXHistory.Views;
 
 public partial class CompletedLaunchesPage : ContentPage
 {
-    private readonly CompletedLaunchesViewModel _vm;
+    private readonly CompletedLaunchesViewModel _viewmodel;
 
     public CompletedLaunchesPage()
     {
         InitializeComponent();
         
-        _vm = new CompletedLaunchesViewModel();
-        BindingContext = _vm;
+        this._viewmodel = new();
+        BindingContext = _viewmodel;
 
-        _vm.PopulateCompletedLaunches();
+        _viewmodel.PopulateCompletedLaunches();
     }
 
-    private async void WatchTheLaunch_Tapped(object sender, EventArgs e)
+    private void WatchTheLaunch_Tapped(object sender, EventArgs e)
     {
-
-
         Root bc = ((VisualElement)sender).BindingContext as Root;
 
         if (bc != null)
