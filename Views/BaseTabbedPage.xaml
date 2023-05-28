@@ -5,7 +5,7 @@
             x:Class="SpaceXHistory.Views.BaseTabbedPage"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackground="Black"
+            BarBackground="{AppThemeBinding Light='White', Dark='Black'}"
             UnselectedTabColor="{OnIdiom Phone='#adb5bd'}"
             SelectedTabColor="{OnIdiom Phone='#006BB5'}">
 

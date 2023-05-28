@@ -15,27 +15,31 @@
             <x:Double x:Key="launchNameFontSize">30</x:Double>
             <x:Double x:Key="launchContentFontSize">18</x:Double>
             <x:Double x:Key="borderTextFontSize">16</x:Double>
-            <Color x:Key="launchTitleTextColor">#adb5bd</Color>
-            <Color x:Key="launchContentTextColor">White</Color>
+            <Color x:Key="launchTitleTextColorDark">#adb5bd</Color>
+            <Color x:Key="launchTitleTextColorLight">Black</Color>
+            <Color x:Key="launchContentTextColorDark">White</Color>
+            <Color x:Key="launchContentTextColorLight">Black</Color>
             <Color x:Key="borderBgColor">Transparent</Color>
         </ResourceDictionary>
+        
+        
 
         <Style x:Key="LaunchTitleLabelStyle" TargetType="Label">
-            <Setter Property="FontFamily" Value="Light" />
+            <Setter Property="FontFamily" Value="{AppThemeBinding Dark='Light'}" />
             <Setter Property="FontSize" Value="{StaticResource launchTitleFontSize}"/>
-            <Setter Property="TextColor" Value="{StaticResource launchTitleTextColor}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource launchTitleTextColorLight}, Dark={StaticResource launchTitleTextColorDark}}" />
         </Style>
 
         <Style x:Key="LaunchContentLabelStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="Medium"/>
             <Setter Property="FontSize" Value="{StaticResource launchContentFontSize}"/>
-            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource launchContentTextColorLight}, Dark={StaticResource launchContentTextColorDark}}" />
         </Style>
 
         <Style x:Key="LaunchNameLabelStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="Bold"/>
             <Setter Property="FontSize" Value="{StaticResource launchNameFontSize}"/>
-            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource launchContentTextColorLight}, Dark={StaticResource launchContentTextColorDark}}" />
         </Style>
 
         <Style x:Key="patchStyle" TargetType="Image">
@@ -45,7 +49,7 @@
 
         <Style TargetType="Border">
             <Setter Property="BackgroundColor" Value="{StaticResource borderBgColor}"/>
-            <Setter Property="Stroke" Value="White"/>
+            <Setter Property="Stroke" Value="{AppThemeBinding Light='Black', Dark='White'}"/>
             <Setter Property="StrokeThickness" Value="2"/>
             <Setter Property="StrokeShape" Value="RoundRectangle 8,8,8,8"/>
             <Setter Property="Padding" Value="10, 12"/>
@@ -59,7 +63,7 @@
         <Style x:Key="borderLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="Medium" />
             <Setter Property="FontSize" Value="{StaticResource borderTextFontSize}" />
-            <Setter Property="TextColor" Value="{StaticResource launchContentTextColor}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource launchContentTextColorLight}, Dark={StaticResource launchContentTextColorDark}}" />
         </Style>
     </Application.Resources>
 </Application>

@@ -27,7 +27,7 @@
                                    Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
                             <Border Grid.Row="3" Grid.Column="0" HorizontalOptions="Start">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="youtube.png" Style="{StaticResource borderIcon}"/>
+                                <Image Source="{AppThemeBinding Light='yt_light', Dark='youtube.png'}" Style="{StaticResource borderIcon}"/>
                                     <Label Text="Watch the launch" Margin="6, 0, 0, 0" HorizontalOptions="Center" 
                                            VerticalOptions="Center" Style="{StaticResource borderLabel}" />
                                 </StackLayout>
