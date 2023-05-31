@@ -6,7 +6,7 @@
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Black">
+             BackgroundColor="{AppThemeBinding Light='White', Dark='Black'}">
 
     <CollectionView ItemsSource="{Binding UpcomingLaunches}" Margin="0, 100, 20, 0">
         <CollectionView.ItemsLayout>
@@ -16,13 +16,13 @@
                 <DataTemplate x:DataType="model:Root">
                     <Grid RowDefinitions="200" ColumnDefinitions="*, *" Margin="0, 20, 0, 0">
                         <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}" Margin="0, 0, 40, 0" HorizontalOptions="End"
-                               VerticalOptions="Center" Source="{Binding Links.Patch.Small, TargetNullValue='https://i.imgur.com/8pgWyf4.png'}"/>
+                               VerticalOptions="Center" Source="{Binding Links.Patch.Small, TargetNullValue='no_mission_neutral.png'}"/>
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="*" 
                               HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0, 0, 0, 20">
                             <Label Grid.Row="0" Grid.Column="0" WidthRequest="180" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>
                             <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource LaunchContentLabelStyle}"
                                    Text="{Binding Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Informed', FallbackValue='Not Informed'}"
-                                   FontFamily="Medium" Margin="0, 0, 0, 5" TextColor="White"/>
+                                   Margin="0, 0, 0, 5"/>
                             <Label Grid.Row="2" Grid.Column="0" FontFamily="Medium" Margin="0, 0, 0, 10" Text="{Binding Status}" 
                                    Style="{StaticResource LaunchContentLabelStyle}" TextColor="{Binding StatusColor}" />
                             <Border Grid.Row="3" Grid.Column="0" HorizontalOptions="Start">

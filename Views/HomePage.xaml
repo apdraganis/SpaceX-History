@@ -8,6 +8,10 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{AppThemeBinding Light='White', Dark='Black'}">
 
+    
+    
+    
+    
     <ScrollView Orientation="Vertical">
 
         <Grid VerticalOptions="Fill" RowDefinitions="Auto, *" ColumnDefinitions="*">
