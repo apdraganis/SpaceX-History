@@ -19,13 +19,13 @@ namespace SpaceXHistory.ViewModels
 
         public void PopulateUpcomingLaunches()
         {
-            UpcomingLaunches.Clear();
-            ObservableCollection<Root> upcomingLaunches = _launchService.FetchUpcomingLaunches();
+            //UpcomingLaunches.Clear();
+            //ObservableCollection<Root> upcomingLaunches = _launchService.FetchUpcomingLaunches();
 
-            if (upcomingLaunches == null || upcomingLaunches.Count == 0) return;
+            //if (upcomingLaunches == null || upcomingLaunches.Count == 0) return;
 
-            foreach (Root launch in upcomingLaunches)
-                UpcomingLaunches.Add(launch);
+            //foreach (Root launch in upcomingLaunches)
+            //    UpcomingLaunches.Add(launch);
         }
 
         

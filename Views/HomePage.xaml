@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SpaceXHistory.Views.HomePage"
+             x:Class="SpaceXHistory.Views.Launches.HomePage"
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:HomePageViewModel"
@@ -12,7 +12,7 @@
     
     
     
-    <ScrollView Orientation="Vertical">
+    <!--<ScrollView Orientation="Vertical">
 
         <Grid VerticalOptions="Fill" RowDefinitions="Auto, *" ColumnDefinitions="*">
             
@@ -20,13 +20,13 @@
 
             <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Spacing="50" Orientation="{OnIdiom Phone=Vertical, Desktop=Horizontal}" 
                          Margin="{OnIdiom Desktop='0, -50, 0, 0'}">
-            <!-- Next Launch -->
+            --><!-- Next Launch --><!--
             <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Next Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
                         <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='no_mission_neutral.png'}"
                            Style="{StaticResource patchStyle}"/>
-                        <!--TargetNullValue='https://i.imgur.com/8pgWyf4.png'-->
+                        --><!--TargetNullValue='https://i.imgur.com/8pgWyf4.png'--><!--
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding NextLaunch.Name}" Style="{StaticResource LaunchNameLabelStyle}" Margin="10, 0, 0, 10"/>
                         <Label Grid.Row="1" Grid.Column="0" Text="{Binding NextLaunch.Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Specified'}" 
@@ -46,7 +46,7 @@
                 </Grid>
             </VerticalStackLayout>
 
-            <!-- Latest Launch -->
+            --><!-- Latest Launch --><!--
             <VerticalStackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Latest Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
@@ -71,7 +71,7 @@
                 </Grid>
             </VerticalStackLayout>
 
-            <!-- Roadster Status -->
+            --><!-- Roadster Status --><!--
             <VerticalStackLayout Grid.Row="3" Grid.Column="0" HorizontalOptions="Center">
                 <Label HorizontalOptions="Center" Text="Tesla Roadster Status" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
@@ -109,6 +109,6 @@
             </VerticalStackLayout>
             </StackLayout>
         </Grid>
-    </ScrollView>
+    </ScrollView>-->
     
 </ContentPage>

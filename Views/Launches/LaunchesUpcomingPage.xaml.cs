@@ -1,23 +1,22 @@
 using SpaceXHistory.Models;
 using SpaceXHistory.ViewModels;
 
-namespace SpaceXHistory.Views;
+namespace SpaceXHistory.Views.Launches;
 
-public partial class UpcomingLaunchesPage : ContentPage
+public partial class LaunchesUpcomingPage : ContentPage
 {
-	private readonly UpcomingLaunchesViewModel _vm;
+	private readonly LaunchesUpcomingViewModel _vm;
 
-	public UpcomingLaunchesPage()
+	public LaunchesUpcomingPage()
 	{
-        
-		//InitializeComponent();
+		InitializeComponent();
 
         _vm = new();
-		BindingContext = _vm;
+        BindingContext = _vm;
 
-		_vm.PopulateUpcomingLaunches();
-	}
-    
+        _vm.PopulateUpcomingLaunches();
+    }
+
     private void WatchTheLaunch_Tapped(object sender, EventArgs e)
     {
         Root bc = ((VisualElement)sender).BindingContext as Root;

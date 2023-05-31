@@ -9,14 +9,14 @@ namespace SpaceXHistory.ViewModels
     {
         readonly LaunchService launchService;
 
-        [ObservableProperty]
-        private Root _nextLaunch;
+        //[ObservableProperty]
+        //private Root _nextLaunch;
 
-        [ObservableProperty]
-        private Root _latestLaunch;
+        //[ObservableProperty]
+        //private Root _latestLaunch;
 
-        [ObservableProperty]
-        private Roadster _roadsterInfo;
+        //[ObservableProperty]
+        //private Roadster _roadsterInfo;
 
         public HomePageViewModel()
         {
@@ -26,19 +26,19 @@ namespace SpaceXHistory.ViewModels
         [RelayCommand]
         public void GetNextLaunch()
         {
-            NextLaunch = launchService.GetNextLaunch();
+            //NextLaunch = launchService.GetNextLaunch();
         }
 
         [RelayCommand]
         public void GetLatestLaunch()
         {
-            LatestLaunch = launchService.GetLatestLaunch();
+            //LatestLaunch = launchService.GetLatestLaunch();
         }
 
         [RelayCommand]
         public void GetRoadsterInfo()
         {
-            RoadsterInfo = launchService.GetRoadster();
+            //RoadsterInfo = launchService.GetRoadster();
         }
     }
 }

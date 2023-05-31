@@ -9,7 +9,7 @@ public partial class CompletedLaunchesPage : ContentPage
 
     public CompletedLaunchesPage()
     {
-        InitializeComponent();
+        //InitializeComponent();
         
         this._viewmodel = new();
         BindingContext = _viewmodel;

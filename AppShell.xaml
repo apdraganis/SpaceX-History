@@ -4,9 +4,85 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SpaceXHistory"
-    xmlns:views="clr-namespace:SpaceXHistory.Views">
+    xmlns:views="clr-namespace:SpaceXHistory.Views"
+    xmlns:launches="clr-namespace:SpaceXHistory.Views.Launches"
+    xmlns:compInfo="clr-namespace:SpaceXHistory.Views.CompanyInfo">
+
+
+
+
+    <FlyoutItem Title="Launches" Icon="iconblank.png">
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="Main"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate launches:LaunchesMainPage}"
+				Route="LaunchesMainPage" />
+        </Tab>
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="Upcoming"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate launches:LaunchesUpcomingPage}"
+				Route="LaunchesUpcomingPage" />
+        </Tab>
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="Completed"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
+				Route="LaunchesCompletedPage" />
+        </Tab>
+    </FlyoutItem>
+
+
+
+    <FlyoutItem Title="Company Info" Icon="iconblank.png">
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="General"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate compInfo:CompanyInfoGeneralPage}"
+				Route="CompanyInfoGeneralPage" />
+        </Tab>
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="Crew"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate compInfo:CompanyInfoCrewPage}"
+				Route="CompanyInfoCrewPage" />
+        </Tab>
+        <Tab>
+            <ShellContent
+				Shell.NavBarIsVisible="true"
+				Title="History"
+				Icon="iconblank.png"
+				ContentTemplate="{DataTemplate compInfo:CompanyInfoHistoryPage}"
+				Route="CompanyInfoHistoryPage" />
+        </Tab>
+    </FlyoutItem>
+
+
 
     <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="Settings"
+			Icon="iconblank.png"
+			ContentTemplate="{DataTemplate views:SettingsPage}"
+			Route="SettingsPage" />
+
+
+    <MenuItem Text="About" IconImageSource="iconblank.png"/>
+
+
+
+
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:BaseTabbedPage}"
         Route="MainPage" />
@@ -14,6 +90,6 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:BaseTabbedPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
 
 </Shell>

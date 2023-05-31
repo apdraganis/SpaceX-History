@@ -9,7 +9,7 @@ public partial class HomePage : ContentPage
 
 	public HomePage()
 	{
-		InitializeComponent();
+		//InitializeComponent();
 
 		_viewModel = new ();
         BindingContext = _viewModel;
@@ -21,22 +21,22 @@ public partial class HomePage : ContentPage
 
 	private void NextLaunchWebcastTap(object sender, EventArgs e)
 	{
-		OpenUrl(_viewModel.NextLaunch.Links.Webcast);
+		//OpenUrl(_viewModel.NextLaunch.Links.Webcast);
 	}
 
     private void LatestLaunchWebcastTap(object sender, EventArgs e)
     {
-        OpenUrl(_viewModel.LatestLaunch.Links.Webcast);
+        //OpenUrl(_viewModel.LatestLaunch.Links.Webcast);
     }
 
 	private void RoadsterWebcastTap(Object sender, EventArgs e)
 	{
-		OpenUrl(_viewModel.RoadsterInfo.Video);
+		//OpenUrl(_viewModel.RoadsterInfo.Video);
 	}
 
     private void RoadsterWikiTap(Object sender, EventArgs e)
     {
-        OpenUrl(_viewModel.RoadsterInfo.Wikipedia);
+        //OpenUrl(_viewModel.RoadsterInfo.Wikipedia);
     }
 
     private async void OpenUrl(string url)

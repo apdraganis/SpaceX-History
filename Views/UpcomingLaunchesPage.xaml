@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SpaceXHistory.Views.UpcomingLaunchesPage"
+             x:Class="SpaceXHistory.Views.Launches.UpcomingLaunchesPage"
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:UpcomingLaunchesViewModel"
@@ -32,7 +32,7 @@
                                            VerticalOptions="Center" Style="{StaticResource borderLabel}" />
                                 </StackLayout>
                                 <Border.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="WatchTheLaunch_Tapped" />
+                                    <!--<TapGestureRecognizer Tapped="WatchTheLaunch_Tapped" />-->
                                 </Border.GestureRecognizers>
                         </Border>
                         </Grid>

@@ -20,14 +20,14 @@ namespace SpaceXHistory.ViewModels
 
         public void PopulateCompletedLaunches()
         {
-            CompletedLaunches.Clear();
+            //CompletedLaunches.Clear();
 
-            ObservableCollection<Root> completedLaunches = _launchService.FetchCompletedLaunches();
+            //ObservableCollection<Root> completedLaunches = _launchService.FetchCompletedLaunches();
 
-            if (completedLaunches == null || completedLaunches.Count == 0) return;
+            //if (completedLaunches == null || completedLaunches.Count == 0) return;
 
-            foreach (Root launch in completedLaunches)
-                CompletedLaunches.Add(launch);
+            //foreach (Root launch in completedLaunches)
+            //    CompletedLaunches.Add(launch);
         }
     }
 }
