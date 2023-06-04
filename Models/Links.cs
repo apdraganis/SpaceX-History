@@ -11,5 +11,6 @@ namespace SpaceXHistory.Models
         public Patch Patch { get; set; }
         public string Webcast { get; set; }
         public object Wikipedia { get; set; }
+        public string Website { get; set; }
     }
 }

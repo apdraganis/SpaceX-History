@@ -9,62 +9,48 @@
     xmlns:compInfo="clr-namespace:SpaceXHistory.Views.CompanyInfo">
 
 
-
-
-    <FlyoutItem Title="Launches" Icon="iconblank.png">
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="Main"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate launches:LaunchesMainPage}"
-				Route="LaunchesMainPage" />
-        </Tab>
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="Upcoming"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate launches:LaunchesUpcomingPage}"
-				Route="LaunchesUpcomingPage" />
-        </Tab>
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="Completed"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
-				Route="LaunchesCompletedPage" />
-        </Tab>
+    <FlyoutItem Title="Launches" Icon="rocket.png">
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="Main"
+			Icon="house.png"
+			ContentTemplate="{DataTemplate launches:LaunchesMainPage}"
+			Route="LaunchesMainPage" />
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="Upcoming"
+			Icon="spinner.png"
+			ContentTemplate="{DataTemplate launches:LaunchesUpcomingPage}"
+			Route="LaunchesUpcomingPage" />
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="Completed"
+			Icon="circle_check.png"
+			ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
+			Route="LaunchesCompletedPage" />
     </FlyoutItem>
 
 
 
-    <FlyoutItem Title="Company Info" Icon="iconblank.png">
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="General"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate compInfo:CompanyInfoGeneralPage}"
-				Route="CompanyInfoGeneralPage" />
-        </Tab>
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="Crew"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate compInfo:CompanyInfoCrewPage}"
-				Route="CompanyInfoCrewPage" />
-        </Tab>
-        <Tab>
-            <ShellContent
-				Shell.NavBarIsVisible="true"
-				Title="History"
-				Icon="iconblank.png"
-				ContentTemplate="{DataTemplate compInfo:CompanyInfoHistoryPage}"
-				Route="CompanyInfoHistoryPage" />
-        </Tab>
+    <FlyoutItem Title="Company Info" Icon="book_open.png">
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="General"
+			Icon="building.png"
+			ContentTemplate="{DataTemplate compInfo:CompanyInfoGeneralPage}"
+			Route="CompanyInfoGeneralPage" />
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="Crew"
+			Icon="astronaut.png"
+			ContentTemplate="{DataTemplate compInfo:CompanyInfoCrewPage}"
+			Route="CompanyInfoCrewPage" />
+        <ShellContent
+			Shell.NavBarIsVisible="true"
+			Title="History"
+			Icon="timeline.png"
+			ContentTemplate="{DataTemplate compInfo:CompanyInfoHistoryPage}"
+			Route="CompanyInfoHistoryPage" />
     </FlyoutItem>
 
 
@@ -72,12 +58,12 @@
     <ShellContent
 			Shell.NavBarIsVisible="true"
 			Title="Settings"
-			Icon="iconblank.png"
+			Icon="gear.png"
 			ContentTemplate="{DataTemplate views:SettingsPage}"
 			Route="SettingsPage" />
 
 
-    <MenuItem Text="About" IconImageSource="iconblank.png"/>
+    <MenuItem Text="About" IconImageSource="circle_info.png"/>
 
 
 
