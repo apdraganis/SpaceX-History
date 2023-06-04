@@ -21,8 +21,22 @@
             <Color x:Key="launchContentTextColorLight">Black</Color>
             <Color x:Key="borderBgColor">Transparent</Color>
         </ResourceDictionary>
-        
-        
+
+        <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{AppThemeBinding Light='Black', Dark='White'}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
 
         <Style x:Key="LaunchTitleLabelStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="{AppThemeBinding Dark='Light'}" />

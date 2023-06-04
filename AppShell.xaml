@@ -11,20 +11,23 @@
     <FlyoutItem Title="Launches" Icon="rocket.png">
         <ShellContent
 			Shell.NavBarIsVisible="true"
+            Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Main"
-			Icon="house.png"
+			Icon="house_dark.png"
 			ContentTemplate="{DataTemplate launches:LaunchesMainPage}"
 			Route="LaunchesMainPage" />
         <ShellContent
 			Shell.NavBarIsVisible="true"
+            Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Upcoming"
-			Icon="spinner.png"
+			Icon="spinner_dark.png"
 			ContentTemplate="{DataTemplate launches:LaunchesUpcomingPage}"
 			Route="LaunchesUpcomingPage" />
         <ShellContent
 			Shell.NavBarIsVisible="true"
+            Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Completed"
-			Icon="circle_check.png"
+			Icon="circle_check_dark.png"
 			ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
 			Route="LaunchesCompletedPage" />
     </FlyoutItem>
@@ -38,7 +41,7 @@
 			Route="SettingsPage" />
 
 
-    <MenuItem Text="About" IconImageSource="circle_info.png"/>
+    <MenuItem Text="About" IconImageSource="circle_info.png" Clicked="MenuItem_Clicked"/>
 
 
 
@@ -51,6 +54,6 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:BaseTabbedPage}"
-        Route="MainPage" />-->
+        Route="MainPage" /> -->
 
 </Shell>

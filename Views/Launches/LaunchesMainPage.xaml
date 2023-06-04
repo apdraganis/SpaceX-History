@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpaceXHistory.Views.Launches.LaunchesMainPage"
-             Title="LaunchesMainPage"
+             Title=""
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:LaunchesMainPageViewModel"
@@ -25,7 +25,6 @@
                     <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
                         <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='no_mission_neutral.png'}"
                            Style="{StaticResource patchStyle}"/>
-                        <!--TargetNullValue='https://i.imgur.com/8pgWyf4.png'-->
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding NextLaunch.Name}" Style="{StaticResource LaunchNameLabelStyle}" Margin="10, 0, 0, 10"/>
                             <Label Grid.Row="1" Grid.Column="0" Text="{Binding NextLaunch.Date_local, StringFormat='{0:ddd, dd MMM yyyy}', TargetNullValue='Not Specified'}" 

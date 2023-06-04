@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SpaceXHistory.Views.Launches.LaunchesUpcomingPage"
-             Title="LaunchesUpcomingPage"
+             Title=""
              xmlns:model="clr-namespace:SpaceXHistory.Models"
              xmlns:viewmodel="clr-namespace:SpaceXHistory.ViewModels"
              x:DataType="viewmodel:LaunchesUpcomingViewModel"
@@ -10,7 +10,7 @@
              BackgroundColor="{AppThemeBinding Light='White', Dark='Black'}">
 
 
-    <CollectionView ItemsSource="{Binding UpcomingLaunches}" Margin="0, 100, 20, 0">
+    <CollectionView ItemsSource="{Binding UpcomingLaunches}" Margin="{OnIdiom Desktop='0, 100, 20, 0'}">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Desktop=2}" VerticalItemSpacing="30"/>
         </CollectionView.ItemsLayout>

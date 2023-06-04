@@ -7,9 +7,9 @@ public partial class SettingsPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-		var isToggled = e.Value;
-		Application.Current.UserAppTheme = isToggled ? AppTheme.Dark : AppTheme.Light;
+        var isChecked = e.Value;
+        Application.Current.UserAppTheme = isChecked ? AppTheme.Dark : AppTheme.Light;
     }
 }
