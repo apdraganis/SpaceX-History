@@ -5,8 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SpaceXHistory"
     xmlns:views="clr-namespace:SpaceXHistory.Views"
-    xmlns:launches="clr-namespace:SpaceXHistory.Views.Launches"
-    xmlns:compInfo="clr-namespace:SpaceXHistory.Views.CompanyInfo">
+    xmlns:launches="clr-namespace:SpaceXHistory.Views.Launches">
 
 
     <FlyoutItem Title="Launches" Icon="rocket.png">
@@ -29,30 +28,6 @@
 			ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
 			Route="LaunchesCompletedPage" />
     </FlyoutItem>
-
-
-
-    <FlyoutItem Title="Company Info" Icon="book_open.png">
-        <ShellContent
-			Shell.NavBarIsVisible="true"
-			Title="General"
-			Icon="building.png"
-			ContentTemplate="{DataTemplate compInfo:CompanyInfoGeneralPage}"
-			Route="CompanyInfoGeneralPage" />
-        <ShellContent
-			Shell.NavBarIsVisible="true"
-			Title="Crew"
-			Icon="astronaut.png"
-			ContentTemplate="{DataTemplate compInfo:CompanyInfoCrewPage}"
-			Route="CompanyInfoCrewPage" />
-        <ShellContent
-			Shell.NavBarIsVisible="true"
-			Title="History"
-			Icon="timeline.png"
-			ContentTemplate="{DataTemplate compInfo:CompanyInfoHistoryPage}"
-			Route="CompanyInfoHistoryPage" />
-    </FlyoutItem>
-
 
 
     <ShellContent
