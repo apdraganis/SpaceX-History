@@ -11,7 +11,4 @@
  ![Group 3](https://github.com/apdraganis/SpaceX-History/blob/main/Resources/Images/desktop.png)
 
  ### Video
- 
- 
- 
- <img src="/Resources/Images/gif.gif" width="250" height="550"/>
+ <img src="/Resources/Images/gif.gif" alt="android-gif" width="350" height="750" loop=infinite/>
