@@ -38,20 +38,16 @@ namespace SpaceXHistory.Models
             {
                 if (Upcoming)
                     return Color.FromRgb(58, 134, 255);
-                        //.FromHex("#3a86ff");
 
                 if (Success is bool value)
                 {
                     if (value)
                         return Color.FromRgb(118, 200, 147);
-                    //.FromHex("#76c893");
                     else
                         return Color.FromRgb(230, 57, 70);
-                            //.FromHex("#e63946");
                 }
 
                 return Color.FromRgb(230, 57, 70);
-                //.FromHex("#e63946");
             }
         }
     }
