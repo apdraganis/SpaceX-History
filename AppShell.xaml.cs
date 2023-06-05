@@ -9,6 +9,7 @@ public partial class AppShell : Shell
 	}
 
     private async void MenuItem_Clicked(object sender, EventArgs e)
+
     {
         if (Connectivity.Current.NetworkAccess == NetworkAccess.None)
         {

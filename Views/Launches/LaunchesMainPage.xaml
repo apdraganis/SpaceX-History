@@ -15,7 +15,7 @@
 
         <Grid VerticalOptions="Fill" RowDefinitions="Auto, *" ColumnDefinitions="*">
 
-            <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="spacex_logo" Margin="30, 0, 0, 0" WidthRequest="250" HeightRequest="100"/>
+            <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="spacex_logo.png" Margin="30, 0, 0, 0" WidthRequest="250" HeightRequest="100"/>
 
             <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Spacing="50" Orientation="{OnIdiom Phone=Vertical, Desktop=Horizontal}" 
                          Margin="{OnIdiom Desktop='0, -50, 0, 0'}">
@@ -23,7 +23,7 @@
                 <VerticalStackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
                     <Label HorizontalOptions="Center" Text="Next Launch" Style="{StaticResource LaunchTitleLabelStyle}" Margin="0, 25, 0, 20"/>
                     <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
-                        <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='no_mission_neutral.png'}"
+                        <Image Grid.Row="0" Grid.Column="0" Source="{Binding NextLaunch.Links.Patch.Small, TargetNullValue='no_mission.png'}"
                            Style="{StaticResource patchStyle}"/>
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto">
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding NextLaunch.Name}" Style="{StaticResource LaunchNameLabelStyle}" Margin="10, 0, 0, 10"/>

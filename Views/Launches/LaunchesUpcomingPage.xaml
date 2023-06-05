@@ -18,7 +18,7 @@
             <DataTemplate x:DataType="model:Root">
                 <Grid RowDefinitions="200" ColumnDefinitions="*, *" Margin="0, 20, 0, 0">
                     <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource patchStyle}" Margin="0, 0, 40, 0" HorizontalOptions="End"
-                               VerticalOptions="Center" Source="{Binding Links.Patch.Small, TargetNullValue='no_mission_neutral.png'}"/>
+                               VerticalOptions="Center" Source="{Binding Links.Patch.Small, TargetNullValue='no_mission.png'}"/>
                     <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="auto, auto, auto, auto" ColumnDefinitions="*" 
                               HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="0, 0, 0, 20">
                         <Label Grid.Row="0" Grid.Column="0" WidthRequest="180" Style="{StaticResource LaunchNameLabelStyle}" Margin="0, 0, 0, 10" Text="{Binding Name}"/>

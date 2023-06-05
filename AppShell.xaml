@@ -13,21 +13,21 @@
 			Shell.NavBarIsVisible="true"
             Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Main"
-			Icon="house_dark.png"
+			Icon="house.png"
 			ContentTemplate="{DataTemplate launches:LaunchesMainPage}"
 			Route="LaunchesMainPage" />
         <ShellContent
 			Shell.NavBarIsVisible="true"
             Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Upcoming"
-			Icon="spinner_dark.png"
+			Icon="spinner.png"
 			ContentTemplate="{DataTemplate launches:LaunchesUpcomingPage}"
 			Route="LaunchesUpcomingPage" />
         <ShellContent
 			Shell.NavBarIsVisible="true"
             Shell.TabBarBackgroundColor="#2D3F50"
 			Title="Completed"
-			Icon="circle_check_dark.png"
+			Icon="circle_check.png"
 			ContentTemplate="{DataTemplate launches:LaunchesCompletedPage}"
 			Route="LaunchesCompletedPage" />
     </FlyoutItem>
@@ -42,18 +42,5 @@
 
 
     <MenuItem Text="About" IconImageSource="circle_info.png" Clicked="MenuItem_Clicked"/>
-
-
-
-
-    <!--<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:BaseTabbedPage}"
-        Route="MainPage" />
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:BaseTabbedPage}"
-        Route="MainPage" /> -->
 
 </Shell>

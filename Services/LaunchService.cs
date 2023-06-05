@@ -21,7 +21,7 @@ namespace SpaceXHistory.Services
         }
 
 
-        // HomePage
+        // LaunchesMainPage
         public Root GetNextLaunch()
         {
             var nextLaunchSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/next").Result;
@@ -51,7 +51,7 @@ namespace SpaceXHistory.Services
         }
 
 
-        // UpcomingLaunchesPage
+        // LaunchesUpcomingPage
         public ObservableCollection<Root> FetchUpcomingLaunches()
         {
             var upcomingLaunchesSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/upcoming").Result;
@@ -63,7 +63,7 @@ namespace SpaceXHistory.Services
         }
 
 
-        // CompletedLaunchesPage
+        // LaunchesCompletedPage
         public ObservableCollection<Root> FetchCompletedLaunches()
         {
             var completedLaunchesSerialized = _httpClient.GetStringAsync(Constants.BaseUrl + "launches/past").Result;

@@ -59,38 +59,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\base.svg" />
-	  <None Remove="Resources\Images\cap.svg" />
-	  <None Remove="resources\images\home.svg" />
-	  <None Remove="Resources\Images\ship.svg" />
-	  <None Remove="Resources\Images\wiki.svg" />
-	  <None Remove="Resources\Images\youtube.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\BaseTabbedPage.xaml.cs">
-	    <DependentUpon>BaseTabbedPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\CompletedLaunchesPage.xaml.cs">
-	    <DependentUpon>CompletedLaunchesPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\BaseTabbedPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\HomePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\CompletedLaunchesPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Launches\LaunchesCompletedPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -101,9 +74,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\UpcomingLaunchesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
