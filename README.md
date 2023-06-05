@@ -10,6 +10,5 @@
  ### Desktop dark and light theme
  ![Group 3](https://github.com/apdraganis/SpaceX-History/blob/main/Resources/Images/desktop.png)
 
- #### Video
-
-In progress...
+ ### Video
+ <img src="/Resources/Images/gif.gif" width="250" height="550"/>
